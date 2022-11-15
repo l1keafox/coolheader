@@ -1,23 +1,27 @@
-import logo from './logo.svg';
 import './App.css';
 
 function App() {
+
+  const left = document.getElementById("left-side");
+
+  const handleOnMove = e =>{
+    const p = e.clientX / window.innerWidth * 100;
+    left.style.width = `${p}%`;
+  }
+  document.onmousemove = e => handleOnMove(e);
+  
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+        <div id="left-side" class="side"> 
+          <h2 class="title"> 
+            Today is going to be <span class="fancy">awesome! </span>
+          </h2>
+        </div>
+        <div id="right-side" class="side"> 
+          <h2 class="title"> 
+            Today is going to be <span class="fancy">wonderful! </span>
+          </h2>
+        </div>
     </div>
   );
 }
